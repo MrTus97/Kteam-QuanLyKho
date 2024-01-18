@@ -11,9 +11,15 @@ namespace QuanLyKhoKteam.ViewModel
     {
 
         // Mọi thứ xử lý sẽ nằm trong class này
-
+        public bool IsLoading = false;
         public MainViewModel() {
-            MessageBox.Show("Đã vào trong MainViewModel -> Data context của mainwindow.xaml");
+            if (!IsLoading)
+            {
+                IsLoading = true;
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.ShowDialog();
+            }
+            
         }
     }
 }
