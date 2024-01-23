@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace QuanLyKhoKteam.ViewModel
 {
@@ -11,14 +13,16 @@ namespace QuanLyKhoKteam.ViewModel
     {
 
         // Mọi thứ xử lý sẽ nằm trong class này
-        public bool IsLoading = false;
+        public bool isLoaded = false;
+
+        public ICommand LoadedWindowCommand { get; set; }
         public MainViewModel() {
-            if (!IsLoading)
+            LoadedWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
             {
-                IsLoading = true;
+                isLoaded = true;
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.ShowDialog();
-            }
+            });
             
         }
     }

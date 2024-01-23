@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyKhoKteam"
+        xmlns:uc="clr-namespace:QuanLyKhoKteam.UserControlKteam"
         mc:Ignorable="d"
         Title="Đăng nhập"
         Height="250"
@@ -14,9 +15,21 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}">
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Name="loginWindow">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=loginWindow}"></uc:ControlBarUC>
+        </Grid>
+        <Grid Grid.Row="1">
         <materialDesign:Card Width="300"
                              Height="200"
                              HorizontalAlignment="Center"
@@ -68,5 +81,6 @@
                 </Grid>
             </Grid>
         </materialDesign:Card>
+        </Grid>
     </Grid>
 </Window>
