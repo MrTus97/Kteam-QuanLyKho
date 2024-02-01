@@ -3,13 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:uc="clr-namespace:QuanLyKhoKteam.UserControlKteam"
         xmlns:local="clr-namespace:QuanLyKhoKteam"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         Title="Phần mềm quản lý kho"
         Height="450"
         Width="800"
+        xmlns:uc="clr-namespace:QuanLyKhoKteam.UserControlKteam"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -18,10 +18,11 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        DataContext="{StaticResource MainVM}"
+        WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
-        WindowStyle="None"
+        
+        DataContext="{StaticResource MainVM}"        
         Name="mainWindow">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -63,9 +64,11 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="0"
-                            ToolTip="Nhập kho">
+                            ToolTip="Nhập kho"
+                            Command="{Binding InputCommand}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
@@ -86,7 +89,8 @@
                         </Grid>
                     </Button>
                     <Button Grid.Column="1"
-                            ToolTip="Xuất kho">
+                            ToolTip="Xuất kho"
+                            Command="{Binding OutputCommand}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
@@ -107,7 +111,8 @@
                         </Grid>
                     </Button>
                     <Button Grid.Column="2"
-                            ToolTip="Vật tư">
+                            ToolTip="Vật tư"
+                            Command="{Binding ObjectCommmand}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
@@ -128,7 +133,8 @@
                         </Grid>
                     </Button>
                     <Button Grid.Column="3"
-                            ToolTip="Đơn vị đo">
+                            ToolTip="Đơn vị đo"
+                            Command="{Binding UnitCommand}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
@@ -149,7 +155,8 @@
                         </Grid>
                     </Button>
                     <Button Grid.Column="4"
-                            ToolTip="Nhà cung cấp">
+                            ToolTip="Nhà cung cấp"
+                            Command="{Binding SuplierCommand}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
@@ -170,7 +177,8 @@
                         </Grid>
                     </Button>
                     <Button Grid.Column="5"
-                            ToolTip="Khách hàng">
+                            ToolTip="Khách hàng"
+                            Command="{Binding CustomerCommand}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
@@ -187,6 +195,28 @@
                                                          Width="24"
                                                          Height="24"
                                                          Kind="HumanHandsup"></materialDesign:PackIcon>
+                            </Grid>
+                        </Grid>
+                    </Button>
+                    <Button Grid.Column="6"
+                            ToolTip="Người dùng"
+                            Command="{Binding UserCommand}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Người dùng"
+                                           HorizontalAlignment="Center"></TextBlock>
+                            </Grid>
+
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon HorizontalAlignment="Center"
+                                                         Width="24"
+                                                         Height="24"
+                                                         Kind="AccountMultiple"></materialDesign:PackIcon>
                             </Grid>
                         </Grid>
                     </Button>
